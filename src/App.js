@@ -1,17 +1,21 @@
 import React from "react";
 
 import Header from './components/Header'
-import Main from './components/Main'
-import Aside from './components/Aside'
+import Main from './components/Content'
+import Aside from './components/Menu'
 import Footer from './components/Footer'
+import { Container } from "./styles";
+import { GlobalStyle } from "./styles";
 
 export default props => {
   return (
-    <div className='App'>    
-      <Header />
-      <Main />
-      <Aside />
-      <Footer />
-    </div>
+    
+    <Container> 
+        <GlobalStyle/>   
+        <Header />
+        <Main />
+        <Aside />
+        <Footer />
+    </Container>
   )
 }

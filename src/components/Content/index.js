@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Footer } from '../../styles'
+import { Content } from '../../styles'
 
 export default props => {
     return(
-        <Footer> footer</Footer>
+        <Content>main</Content>
     )
 }

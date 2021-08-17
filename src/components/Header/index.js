@@ -1,5 +1,10 @@
+import React from 'react'
+import {Header} from './../../styles'
+
 export default props => {
     return(
-        <header>header</header>
+        <Header>
+            <h1>My Song List</h1>
+        </Header>
     )
 }
