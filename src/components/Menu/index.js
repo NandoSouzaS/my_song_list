@@ -1,10 +1,13 @@
 import React from 'react'
 import {Menu} from '../../styles'
+import Logo from '../Logo'
 
 export default props => {
     return(
         <Menu>
-            <li>my favorites</li>
+            <Logo/>
+            <li>Top songs</li>
+            <li>favorites</li>
         </Menu>
     )
 }
