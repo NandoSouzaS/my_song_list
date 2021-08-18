@@ -1,24 +1,25 @@
 import React from "react";
+import { Provider } from "react-redux";
 
-import Header from './components/Header'
-import Main from './components/Content'
-import Aside from './components/Menu'
-import Footer from './components/Footer'
-import Logo from './components/Logo'
+import Header from "./components/Header";
+import Main from "./components/Content";
+import Aside from "./components/Menu";
+import Footer from "./components/Footer";
 
 import { Container } from "./styles";
 import { GlobalStyle } from "./styles";
+import store from "./store";
 
-export default props => {
+export default (props) => {
   return (
-    
-    <Container> 
-        <GlobalStyle/>
-        <Logo/> 
+    <Provider store={store}>
+      <Container>
+        <GlobalStyle />
         <Header />
         <Main />
         <Aside />
         <Footer />
-    </Container>
-  )
-}
+      </Container>
+    </Provider>
+  );
+};
