@@ -94,7 +94,8 @@ export const Card = styled.div`
   justify-content: space-evenly;
 
   img {
-    background-color: inherit;
+    background-color:rgba(235, 235, 235, 0);
+    border-radius: 10px;
   }
 
   h1 {
@@ -134,12 +135,21 @@ export const Btn = styled.div`
     font-family: sans-serif;
     font-weight: bolder;
   }
+  div{
+    position: relative;
+    bottom: 7%;
+    align-items: center;
+  background-color: rgba(235, 235, 235, 0);
+    color: red;
+    font-family: sans-serif;
+    font-weight: bolder;
+  }
 
   img {
     width: 15px;
     height: 15px;
-    margin-top: 5px;
-    margin-left: 5px;
+    margin-left: 4px;
+    margin-bottom: 2px;
     background-color: rgba(235, 235, 235, 0.9);
   }
 `;

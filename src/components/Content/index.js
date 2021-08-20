@@ -1,26 +1,32 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import { Content } from "../../styles";
-
-import { connect } from "react-redux";
-
 import { Card } from "../../styles";
 import { Btn } from "../../styles";
 
 import deezer from "./deezer.png";
 
-const Main = ({ modules }) => {
+export default async function(){
+  let modules = useSelector((state) => {
+    return state;
+  });
+
+  
   return (
     <Content>
       {modules.map((module) => (
-        <Card key={module.id}>
-          <img key={module.img} alt="cover"></img>
-          <h1>{module.name}</h1>
-          <p>{module.artist}</p>
-          <time>{module.releaseDate}</time>
+        <Card key={module[0].id}>
+          <img src={module.album.cover_small} alt="cover"></img>
+          <h1>{module.title_short}</h1>
+          <p>{module.artist.name}</p>
+          {/* <time>{module.releaseDate}</time> */}
           <time>{module.duration}</time>
           <Btn>
-            <span> &#x2665;</span>
+            <span>
+              <div>&#x2665;</div>
+            </span>
             <span>
               <img src={deezer} alt="dezzer_logo"></img>
             </span>
@@ -30,5 +36,3 @@ const Main = ({ modules }) => {
     </Content>
   );
 };
-
-export default connect((state) => ({ modules: state }))(Main);
