@@ -90,12 +90,10 @@ export const Card = styled.div`
   background-color: rgb(50, 50, 50);
   width: 200px;
   height: 200px;
-  border-radius: 10px;
   justify-content: space-evenly;
 
   img {
-    background-color:rgba(235, 235, 235, 0);
-    border-radius: 10px;
+    background-color: rgba(235, 235, 235, 0);
   }
 
   h1 {
@@ -122,9 +120,10 @@ export const Btn = styled.div`
 
   span {
     background-color: rgba(235, 235, 235, 1);
+    display: flex;
     color: red;
-    text-align: center;
-    text-justify: center;
+    justify-content: center;
+    align-items: center;
     border: none;
     width: 25px;
     height: 25px;
@@ -135,11 +134,8 @@ export const Btn = styled.div`
     font-family: sans-serif;
     font-weight: bolder;
   }
-  div{
-    position: relative;
-    bottom: 7%;
-    align-items: center;
-  background-color: rgba(235, 235, 235, 0);
+  div {
+    background-color: rgba(235, 235, 235, 0);
     color: red;
     font-family: sans-serif;
     font-weight: bolder;
@@ -148,8 +144,6 @@ export const Btn = styled.div`
   img {
     width: 15px;
     height: 15px;
-    margin-left: 4px;
-    margin-bottom: 2px;
     background-color: rgba(235, 235, 235, 0.9);
   }
 `;
