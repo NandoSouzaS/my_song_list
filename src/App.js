@@ -1,22 +1,24 @@
-import React from "react";
-
+import { React, useState } from "react";
 
 import Header from "./components/Header";
-import Main from "./components/Content";
+import Content from "./components/Content";
 import Aside from "./components/Menu";
 import Footer from "./components/Footer";
+import SearchBar from "./components/Header/SearchBar";
 
 import { Container } from "./styles";
 import { GlobalStyle } from "./styles";
 
 export default (props) => {
+  const [searchTerm, setSearchTerm] = useState("eminem");
+
   return (
-      <Container>
-        <GlobalStyle />
-        <Header />
-        <Main />
-        <Aside />
-        <Footer />
-      </Container>
+    <Container>
+      <GlobalStyle />
+      <Header  term={searchTerm} setTerm={setSearchTerm} />
+      <Content term={searchTerm}/>
+      <Aside />
+      <Footer />
+    </Container>
   );
 };

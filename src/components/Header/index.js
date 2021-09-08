@@ -6,7 +6,7 @@ export default props => {
     return(
         <Header>
             <h1>My Song List</h1>
-            <SearchBar />
+            <SearchBar term={props.term} setTerm = {props.setTerm}/>
         </Header>
     )
 }

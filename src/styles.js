@@ -86,10 +86,10 @@ export const Content = styled.main`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 30px;
   background-color: rgb(50, 50, 50);
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   justify-content: space-evenly;
 
   img {
@@ -118,7 +118,7 @@ export const Btn = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  span {
+  a {
     background-color: rgba(235, 235, 235, 1);
     display: flex;
     color: red;
@@ -134,6 +134,7 @@ export const Btn = styled.div`
     font-family: sans-serif;
     font-weight: bolder;
   }
+
   div {
     background-color: rgba(235, 235, 235, 0);
     color: red;
