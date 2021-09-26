@@ -32,9 +32,9 @@ export default (props) => {
               <div>&#x2665;</div>
             </a>
             <a href={module.link}>
-                <img src={deezer} alt="dezzer_logo"></img>
+              <img src={deezer} alt="dezzer_logo"></img>
             </a>
-          </Btn>  
+          </Btn>
         </Card>
       ))}
     </Content>

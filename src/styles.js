@@ -21,8 +21,6 @@ export const GlobalStyle = createGlobalStyle`
 :root{
     --border: thin solid rgba(235,235,235,0.1);
 }
-
-
 `;
 
 export const Header = styled.header`
@@ -153,7 +151,43 @@ export const Footer = styled.footer`
   grid-area: footerGridArea;
   border-top: var(--border);
   text-align: center;
+  padding-top: 20px;
   margin-left: 100px;
+
+  .devName {
+    font-family: "elvish", monospace;
+    font-weight: thin;
+  }
+  .heart {
+    animation: pulsing 3s linear infinite;
+    color: rgb(207, 7, 7);
+    display: inline-block;
+  }
+
+  @keyframes pulsing {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.25);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    75% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 546px) {
+    footer {
+      bottom: 3%;
+      left: 3%;
+    }
+  }
 `;
 
 export const Container = styled.div`
@@ -161,7 +195,7 @@ export const Container = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: 100px 1fr 25vh;
-  grid-template-rows: 80px 1fr 5%;
+  grid-template-rows: 80px 1fr 10%;
   grid-template-areas:
     "logoGridArea headerGridArea headerGridArea"
     "menuGridArea contentGridArea contentGridArea"
