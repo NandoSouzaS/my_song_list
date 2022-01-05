@@ -1,12 +1,12 @@
-import React from 'react'
-import {Header} from './../../styles'
-import SearchBar from './SearchBar'
+import React from "react";
+import { Header } from "../../styles";
+import SearchBar from "./SearchBar";
 
-export default props => {
-    return(
-        <Header>
-            <h1>My Song List</h1>
-            <SearchBar term={props.term} setTerm = {props.setTerm}/>
-        </Header>
-    )
-}
+export default (props) => {
+  return (
+    <Header>
+      <h1>My Song List</h1>
+      <SearchBar term={props.term} setTerm={props.setTerm} />
+    </Header>
+  );
+};

@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const request = axios.create({
   baseURL: "https://deezerdevs-deezer.p.rapidapi.com/",
   timeout: 3000,
@@ -9,7 +8,7 @@ const request = axios.create({
   },
 });
 
-export function getSearch(search = "eminem") {
+export function getSearch(search) {
   const result = request.get(`search?q=${search}`);
   return result;
 }
