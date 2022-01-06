@@ -111,39 +111,44 @@ export const Card = styled.div`
     background-color: inherit;
   }
 `;
-export const Btn = styled.div`
+export const BtnHolder = styled.div`
   background-color: inherit;
   display: flex;
-  justify-content: flex-end;
-
+  flex-direction: row-reverse;
   a {
+    box-sizing: border-box;
     background-color: rgba(235, 235, 235, 1);
     display: flex;
-    color: red;
     justify-content: center;
     align-items: center;
-    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 3px;
+    border-width: 2px;
+    border-color: black;
+    border-style: outset;
+  }
+  button {
+    background-color: rgba(235, 235, 235, 1);
+    border-color: red;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 25px;
     height: 25px;
     font-size: 18px;
-    border: 1px black solid;
     border-radius: 50%;
     margin: 3px;
-    font-family: sans-serif;
-    font-weight: bolder;
-  }
-
-  div {
-    background-color: rgba(235, 235, 235, 0);
     color: red;
     font-family: sans-serif;
     font-weight: bolder;
   }
-
   img {
     width: 15px;
     height: 15px;
-    background-color: rgba(235, 235, 235, 0.9);
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
 

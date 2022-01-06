@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default (props) => {
-  const text = props.term;
 
   return (
     <input
