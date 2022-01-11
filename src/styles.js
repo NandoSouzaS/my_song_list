@@ -130,7 +130,7 @@ export const BtnHolder = styled.div`
     border-style: outset;
   }
   button {
-    background-color: rgba(235, 235, 235, 1);
+    background-color: ${(props) => props.fav ? 'red' :'rgba(235, 235, 235, 1)' };
     border-color: red;
     cursor: pointer;
     display: flex;
@@ -141,7 +141,7 @@ export const BtnHolder = styled.div`
     font-size: 18px;
     border-radius: 50%;
     margin: 3px;
-    color: red;
+    color: ${(props) => props.fav ? 'red' :'rgba(235, 235, 235, 1)' };
     font-family: sans-serif;
     font-weight: bolder;
   }

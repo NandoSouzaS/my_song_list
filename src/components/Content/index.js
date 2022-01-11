@@ -1,48 +1,66 @@
 import React, { useEffect, useState } from "react";
-import * as actions from "../Api";
+import axios from "axios";
+import * as actions from "../../Api";
 import { Content } from "../../styles";
 import { Card } from "../../styles";
 import { BtnHolder } from "../../styles";
 
 import deezer from "./deezer.png";
 
+const baseURL = "http://localhost:3001/favorites";
+
 export default (props) => {
   const [modules, setModules] = useState([]);
-  const [cards, setCards] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  //to set a module as favorite
-  function handleFavorite(id) {
-    const newFavorites = modules.map((module) => {
-      if (module.id == id) {
-        return {...module, favorite: !module.favorite};
-      }
+  useEffect(() => {
+    axios.get(baseURL).then((resp) => {
+      setFavorites(resp.data);
     });
-    setFavorites(...favorites, newFavorites);
+  }, []);
+
+  //to set a module as favorite
+  function handleFavorite(module) {
+    let idChecked = false;
+
+    function idCheck(u, id) {
+      if (u === id) {
+        idChecked = true;
+      }
+    }
+    favorites.forEach((u) => {
+      idCheck(u.id, module.id);
+    });
+    let url = baseURL;
+    if (idChecked) {
+      url = `${baseURL}/${module.id}`;
+      axios.delete(url);
+    } else {
+      url = baseURL;
+      axios.post(url, module);
+    }
+    axios.get(baseURL).then((resp) => {
+      setFavorites(resp.data);
+    });
   }
 
   let search = "";
 
   if (props.term === "") {
-    search = ":favorites";
+    search = "favorites";
   } else {
     search = props.term;
   }
 
   useEffect(() => {
-    if (search === ":favorites" || search === "" || search === undefined) {
-      setCards(favorites);
-    } else {
-      actions.getSearch(search).then((response) => {
-        setModules(response.data.data);
-        setCards(modules);
-      });
-    }
+    actions.getSearch(search).then((response) => {
+      setModules(response.data.data);
+    });
   }, [search]);
 
   return (
     <Content>
-      {cards.map((module) => (
+      {modules.map((module) => (
         <Card key={module.id}>
           <img src={module.album.cover_medium} alt="cover"></img>
           <h1>{module.title_short}</h1>
@@ -53,7 +71,9 @@ export default (props) => {
             <a href={module.link}>
               <img src={deezer} alt="dezzer_logo"></img>
             </a>
-            <button onClick={() => handleFavorite(module.id)}>&#x2665;</button>
+            <button onClick={() => handleFavorite(module)}>
+              &#x2665;
+            </button>
           </BtnHolder>
         </Card>
       ))}
