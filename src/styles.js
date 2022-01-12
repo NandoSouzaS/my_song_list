@@ -1,10 +1,13 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Font from "./fonts/openSansRegular.ttf";
+import Elvish from'./fonts/elvish_ring_nfi.ttf'
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
     font-family: 'Open-Sans';
     src: url(${Font});
+    font-family: 'elvish';
+    src: url(${Elvish});
 }
 *{
     color: rgba(235,235,235,0.9);
@@ -40,13 +43,26 @@ export const Header = styled.header`
     text-justify: center;
     text-align: center;
   }
-
+  div{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+  }
   input {
     color: black;
     background-color: rgba(235, 235, 235, 0.9);
-    margin-top: 10px;
-    width: 30%;
+    width:67%;
+    border: none;
+    outline: none;
   }
+  button{
+    width: 30%;
+    border:none;
+    color: black;
+    
+    background-color: rgba(235, 235, 235, 0.9) ;
+  }
+  
 `;
 
 export const Logo = styled.div`
@@ -129,27 +145,28 @@ export const BtnHolder = styled.div`
     border-color: black;
     border-style: outset;
   }
-  button {
-    background-color: ${(props) => props.fav ? 'red' :'rgba(235, 235, 235, 1)' };
-    border-color: red;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25px;
-    height: 25px;
-    font-size: 18px;
-    border-radius: 50%;
-    margin: 3px;
-    color: ${(props) => props.fav ? 'red' :'rgba(235, 235, 235, 1)' };
-    font-family: sans-serif;
-    font-weight: bolder;
-  }
   img {
     width: 15px;
     height: 15px;
     background-color: rgba(0, 0, 0, 0);
   }
+`;
+export const Button = styled.button`
+  background-color: ${(props) =>
+    props.fav ? "red" : "rgba(235, 235, 235, 1) "};
+  color: ${(props) => (props.fav ? "rgba(235, 235, 235, 1)" : "red")};
+  border-color: red;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  font-size: 18px;
+  border-radius: 50%;
+  margin: 3px;
+  font-family: sans-serif;
+  font-weight: bolder;
 `;
 
 export const Footer = styled.footer`

@@ -4,58 +4,39 @@ import * as actions from "../../Api";
 import { Content } from "../../styles";
 import { Card } from "../../styles";
 import { BtnHolder } from "../../styles";
+import FavButton from "../FavButton";
 
 import deezer from "./deezer.png";
 
-const baseURL = "http://localhost:3001/favorites";
-
 export default (props) => {
   const [modules, setModules] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]); //UPDATE EVERYTIME THE FAV BUTTON IS CLICKED, THEN IS USED TO TOGGLE THE COLLOR OF IT (CHECK src\components\FavButton\index.js)
 
   useEffect(() => {
-    axios.get(baseURL).then((resp) => {
+    axios.get("http://localhost:3001/favorites").then((resp) => {
       setFavorites(resp.data);
     });
   }, []);
 
-  //to set a module as favorite
-  function handleFavorite(module) {
-    let idChecked = false;
-
-    function idCheck(u, id) {
-      if (u === id) {
-        idChecked = true;
-      }
-    }
-    favorites.forEach((u) => {
-      idCheck(u.id, module.id);
-    });
-    let url = baseURL;
-    if (idChecked) {
-      url = `${baseURL}/${module.id}`;
-      axios.delete(url);
-    } else {
-      url = baseURL;
-      axios.post(url, module);
-    }
-    axios.get(baseURL).then((resp) => {
-      setFavorites(resp.data);
-    });
-  }
-
   let search = "";
 
-  if (props.term === "") {
-    search = "favorites";
+  if (props.term === "" || typeof props.term != "string") {
+    search = ":favorites";
+    console.log(typeof props.term);
   } else {
     search = props.term;
   }
 
   useEffect(() => {
-    actions.getSearch(search).then((response) => {
-      setModules(response.data.data);
-    });
+    if (search === ":favorites" || search == ":menu") {
+      axios.get("http://localhost:3001/favorites").then((resp) => {
+        setModules(resp.data);
+      });
+    } else {
+      actions.getSearch(search).then((response) => {
+        setModules(response.data.data);
+      });
+    }
   }, [search]);
 
   return (
@@ -71,9 +52,11 @@ export default (props) => {
             <a href={module.link}>
               <img src={deezer} alt="dezzer_logo"></img>
             </a>
-            <button onClick={() => handleFavorite(module)}>
-              &#x2665;
-            </button>
+            <FavButton
+              favorites={favorites}
+              setFavorites={setFavorites}
+              module={module}
+            ></FavButton>
           </BtnHolder>
         </Card>
       ))}
