@@ -22,7 +22,6 @@ export default (props) => {
 
   if (props.term === "" || typeof props.term != "string") {
     search = ":favorites";
-    console.log(typeof props.term);
   } else {
     search = props.term;
   }
@@ -38,7 +37,7 @@ export default (props) => {
       });
     }
   }, [search]);
-
+  console.log(modules)
   return (
     <Content>
       {modules.map((module) => (
@@ -46,8 +45,8 @@ export default (props) => {
           <img src={module.album.cover_medium} alt="cover"></img>
           <h1>{module.title_short}</h1>
           <p>{module.artist.name}</p>
-          <time>{module.releaseDate}</time>
-          <time>{module.duration}</time>
+          <p>{module.releaseDate}</p>
+          <time>{module.duration }</time>
           <BtnHolder>
             <a href={module.link}>
               <img src={deezer} alt="dezzer_logo"></img>

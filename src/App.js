@@ -2,10 +2,10 @@ import { React, useState } from "react";
 
 import Header from "./components/Header";
 import Content from "./components/Content";
-import Aside from "./components/Menu";
+import Aside from "./components/SideBar";
 import Footer from "./components/Footer";
 
-import { Container } from "./styles";
+import { Container, Logo } from "./styles";
 import { GlobalStyle } from "./styles";
 
 export default (props) => {
@@ -16,7 +16,8 @@ export default (props) => {
       <GlobalStyle />
       <Header term={searchTerm} setTerm={setSearchTerm} />
       <Content term={searchTerm} />
-      <Aside />
+      <Logo/>
+      <Aside term={searchTerm} setTerm={setSearchTerm}/>
       <Footer />
     </Container>
   );

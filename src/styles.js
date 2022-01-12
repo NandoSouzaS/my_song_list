@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Font from "./fonts/openSansRegular.ttf";
-import Elvish from'./fonts/elvish_ring_nfi.ttf'
+import Elvish from "./fonts/elvish_ring_nfi.ttf";
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     color: rgba(235,235,235,0.9);
     margin:0px;
     background-color: #1f2123;
-    font-family: Open-Sans,Arial,sans-serif;
+    font-family: "Open-Sans",Arial,sans-serif;
     font-weight: lighter;
 }
 .root{
@@ -33,9 +33,6 @@ export const Header = styled.header`
   height: 80px;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  margin-left: 50px;
-
   border-bottom: var(--border);
   grid-area: headerGridArea;
 
@@ -43,7 +40,7 @@ export const Header = styled.header`
     text-justify: center;
     text-align: center;
   }
-  div{
+  div {
     display: flex;
     margin-top: 10px;
     justify-content: space-between;
@@ -51,18 +48,26 @@ export const Header = styled.header`
   input {
     color: black;
     background-color: rgba(235, 235, 235, 0.9);
-    width:67%;
+    width: 67%;
     border: none;
     outline: none;
   }
-  button{
+  button {
     width: 30%;
-    border:none;
+    border: none;
     color: black;
-    
-    background-color: rgba(235, 235, 235, 0.9) ;
+
+    background-color: rgba(235, 235, 235, 0.9);
   }
-  
+`;
+export const SideBar = styled.aside`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border-right: var(--border);
+  grid-area: sideBarGridArea;
+  height: 100%;
+  width: 100px;
 `;
 
 export const Logo = styled.div`
@@ -70,29 +75,37 @@ export const Logo = styled.div`
   margin: 10px;
 `;
 
-export const Menu = styled.aside`
-  border-right: var(--border);
-  grid-area: menuGridArea;
+export const Menu = styled.div`
   position: fixed;
-  height: 100%;
+  margin-top:10vh;
   width: 100px;
+  height: 30vh;
   li {
-    background-color: none;
+    padding-top: 37%;
+    text-align: center;
+    box-sizing: border-box;
+    height: calc(100%/2);
+    width: 100%;
     font-size: 13px;
     font-weight: bold;
-    margin-top: 100px;
-    margin-left: 10px;
     list-style: none;
     overflow: hidden;
+    transition: all .2s linear;
+    cursor: pointer;
+  }
+  li:hover{
+    color: red;
+    background-color: rgba(235, 235, 235, 0.2);
   }
 `;
 
 export const Content = styled.main`
+  background-color: black;
   overflow: visible;
-  margin: 20px;
+
   grid-area: contentGridArea;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   height: auto;
 `;
@@ -102,12 +115,15 @@ export const Card = styled.div`
   flex-direction: column;
   margin: 30px;
   background-color: rgb(50, 50, 50);
-  width: 300px;
-  height: 300px;
-  justify-content: space-evenly;
+  width: fit-content;
+  height: fit-content;
+  justify-content: space-between;
+  border-radius: 5%;
 
   img {
     background-color: rgba(235, 235, 235, 0);
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
   }
 
   h1 {
@@ -130,7 +146,9 @@ export const Card = styled.div`
 export const BtnHolder = styled.div`
   background-color: inherit;
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: end;
+  box-sizing: border-box;
+
   a {
     box-sizing: border-box;
     background-color: rgba(235, 235, 235, 1);
@@ -142,7 +160,7 @@ export const BtnHolder = styled.div`
     border-radius: 50%;
     margin: 3px;
     border-width: 2px;
-    border-color: black;
+    border-color: darkgray;
     border-style: outset;
   }
   img {
@@ -155,7 +173,7 @@ export const Button = styled.button`
   background-color: ${(props) =>
     props.fav ? "red" : "rgba(235, 235, 235, 1) "};
   color: ${(props) => (props.fav ? "rgba(235, 235, 235, 1)" : "red")};
-  border-color: red;
+  border-color: darkred;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -165,8 +183,6 @@ export const Button = styled.button`
   font-size: 18px;
   border-radius: 50%;
   margin: 3px;
-  font-family: sans-serif;
-  font-weight: bolder;
 `;
 
 export const Footer = styled.footer`
@@ -220,6 +236,6 @@ export const Container = styled.div`
   grid-template-rows: 80px 1fr 10%;
   grid-template-areas:
     "logoGridArea headerGridArea headerGridArea"
-    "menuGridArea contentGridArea contentGridArea"
+    "sideBarGridArea contentGridArea contentGridArea"
     "footerGridArea footerGridArea footerGridArea";
 `;
