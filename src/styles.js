@@ -77,25 +77,25 @@ export const Logo = styled.div`
 
 export const Menu = styled.div`
   position: fixed;
-  margin-top:10vh;
+  margin-top: 10vh;
   width: 100px;
   height: 30vh;
   li {
-    padding-top: 37%;
+    padding-top:calc(15vh/2 - 11px);
     text-align: center;
     box-sizing: border-box;
-    height: calc(100%/2);
+    height: calc(100% / 2);
     width: 100%;
     font-size: 13px;
     font-weight: bold;
     list-style: none;
     overflow: hidden;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     cursor: pointer;
   }
-  li:hover{
+  li:hover {
     color: red;
-    background-color: rgba(235, 235, 235, 0.2);
+    //background-color: rgba(235, 235, 235, 0.2);
   }
 `;
 

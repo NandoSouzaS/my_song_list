@@ -6,7 +6,7 @@ export default (props) => {
     <SideBar>
       <Menu>
         <li>Top songs</li>
-        <li onClick={() => props.setTerm(":favorites")}>favorites</li>
+        <li onClick={() => props.setTerm(":favorites")}>Favorites</li>
       </Menu>
     </SideBar>
   );

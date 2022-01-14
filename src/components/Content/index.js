@@ -27,7 +27,7 @@ export default (props) => {
   }
 
   useEffect(() => {
-    if (search === ":favorites" || search == ":menu") {
+    if (search === ":favorites" || search === ":menu") {
       axios.get("http://localhost:3001/favorites").then((resp) => {
         setModules(resp.data);
       });
@@ -37,7 +37,7 @@ export default (props) => {
       });
     }
   }, [search]);
-  console.log(modules)
+  
   return (
     <Content>
       {modules.map((module) => (

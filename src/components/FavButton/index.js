@@ -5,7 +5,7 @@ import { Button } from "../../styles";
 export default (props) => {
   const baseURL = "http://localhost:3001/favorites";
 
-  //CHECKING IF THE MODULE BEING RENDERIZED IS IN THE FAVORITES LIST
+  //CHECKING IF THE MODULE BEING RENDERIZED IS IN THE FAVORITES LIST. THIS MAKE THE FAV BUTTON TO CHANGE FROM PRESSED TO UNPRESSED WHEN IT'S RENDERED
   props.favorites.forEach((u) => {
     if (u.id === props.module.id) {
       props.module.fav = true;
