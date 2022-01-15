@@ -81,7 +81,7 @@ export const Menu = styled.div`
   width: 100px;
   height: 30vh;
   li {
-    padding-top:calc(15vh/2 - 11px);
+    padding-top: calc(15vh / 2 - 11px);
     text-align: center;
     box-sizing: border-box;
     height: calc(100% / 2);

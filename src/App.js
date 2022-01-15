@@ -16,8 +16,8 @@ export default (props) => {
       <GlobalStyle />
       <Header term={searchTerm} setTerm={setSearchTerm} />
       <Content term={searchTerm} />
-      <Logo/>
-      <Aside term={searchTerm} setTerm={setSearchTerm}/>
+      <Logo />
+      <Aside term={searchTerm} setTerm={setSearchTerm} />
       <Footer />
     </Container>
   );

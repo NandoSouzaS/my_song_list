@@ -11,7 +11,8 @@ export default (props) => {
         onChange={(e) => {
           term = e.target.value;
         }}
-        onKeyUp={(event) => {           //this made the search button be clicked if the "Enter" key get pressed
+        onKeyUp={(event) => {
+          //this made the search button be clicked if the "Enter" key get pressed
           if (event.key === "Enter") {
             document.getElementById("searchBtn").click();
           }

@@ -37,7 +37,7 @@ export default (props) => {
       });
     }
   }, [search]);
-  
+
   return (
     <Content>
       {modules.map((module) => (
@@ -46,7 +46,7 @@ export default (props) => {
           <h1>{module.title_short}</h1>
           <p>{module.artist.name}</p>
           <p>{module.releaseDate}</p>
-          <time>{module.duration }</time>
+          <time>{module.duration}</time>
           <BtnHolder>
             <a href={module.link}>
               <img src={deezer} alt="dezzer_logo"></img>
