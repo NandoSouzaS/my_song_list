@@ -81,10 +81,10 @@ export const Menu = styled.div`
   width: 100px;
   height: 30vh;
   li {
-    padding-top: calc(15vh / 2 - 11px);
+    padding-top: calc(7.5vh - 10px);
     text-align: center;
     box-sizing: border-box;
-    height: calc(100% / 2);
+    height: 50%;
     width: 100%;
     font-size: 13px;
     font-weight: bold;
@@ -95,7 +95,7 @@ export const Menu = styled.div`
   }
   li:hover {
     color: red;
-    //background-color: rgba(235, 235, 235, 0.2);
+    background-color: rgba(235, 235, 235, 0.2);
   }
 `;
 
