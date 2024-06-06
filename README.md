@@ -6,7 +6,7 @@ This project is all about music. The intention is to build a simple interface to
 
 ## Objective of the project.
 
-I first started this project trying to understand about how to comunicate to a real api. But, instead of using the Deezer api itself, i used a RapidApi which is conected to the Deezer, excluding the need to host my application on a real server. So i use the data from this api and persist them in a JSON-server running locally. So, to make it clear, my idea is not to make a real site, but to learn how to deal with data coming from a api and transform them into interactable components which is the tracks displayed as cards-like content.
+I first started this project trying to understand about how to comunicate to a real api. But, instead of using the Deezer api itself, i used a RapidApi which is conected to the Deezer, excluding the need to host my application on a real server. So i use the data from this api and persist them in a JSON-server running locally. So, to make it clear, my idea is not to make a real site, but to learn how to deal with data coming from a api and transform them into interactable components which is the tracks displayed as cards-like content
 
 ## Visual demonstration 
 
